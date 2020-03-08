@@ -1,34 +1,76 @@
 apply plugin: 'com.android.application'
-
-apply plugin: 'kotlin-android'
-
-apply plugin: 'kotlin-android-extensions'
+apply from: "$rootDir/dependencies.gradle"
+apply from: "$rootDir/config.gradle"
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.androidsample"
-        minSdkVersion 15
-        targetSdkVersion 29
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
+
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            def releaseKeyFile = new File("$rootDir/keys/release.keystore")
+            storeFile releaseKeyFile
+            storePassword 'android'
+            keyAlias 'androidreleasekey'
+            keyPassword 'android'
         }
+
+        debug {
+            def debugKeyFile = new File("$rootDir/keys/debug.keystore")
+            storeFile debugKeyFile
+            keyAlias 'androiddebugkey'
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
+
+    buildTypes {
+        prod {
+            minifyEnabled true
+            shrinkResources true
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+
+        dev {
+            applicationIdSuffix = ".dev"
+            versionNameSuffix "-dev"
+            minifyEnabled false
+            debuggable true
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def apkName = applicationId + "-" + variant.versionName + ".apk"
+            def relativeRootDir = output.packageApplication.outputDirectory.toPath()
+                    .relativize(rootDir.toPath()).toFile()
+            output.outputFileName = new File("$relativeRootDir/apk_builds", apkName)
+        }
+    }
+
+    variantFilter { variant ->
+        def needed = variant.name in [
+                'dev',
+                'prod'
+        ]
+        variant.setIgnore(!needed)
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.2'
+
+    deps.groups.ui dependencies
+
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
 }

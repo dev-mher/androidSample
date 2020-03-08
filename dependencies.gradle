@@ -1,0 +1,114 @@
+ext.versions = [
+        compileSdk          : 29,
+        minSdk              : 21,
+        targetSdk           : 29,
+        buildTools          : '29.0.2',
+
+        kotlin              : '1.3.50',
+        androidGradlePlugin : '3.5.3',
+
+        //Android
+        appcompat           : '1.1.0',
+        annotation          : '1.1.0',
+
+        //Dagger
+        dagger                : '2.14.1',
+
+        //Network
+        retrofit              : '2.6.2',
+        okhttp3               : '3.8.0',
+
+        //UI
+        constraintLayout      : '1.1.3',
+        recyclerView          : '1.0.0',
+        glide                 : '4.9.0',
+        materialDesign        : '1.0.0',
+
+        //Google services
+        googleServicesPlugin  : '4.1.0',
+        playServicesBase      : '16.0.1',
+        playServicesLocation  : '16.0.0'
+]
+
+ext.gradlePlugins = [
+        android     : "com.android.tools.build:gradle:$versions.androidGradlePlugin",
+        kotlin      : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
+        services    : "com.google.gms:google-services:$versions.googleServicesPlugin"
+]
+
+ext.deps = [
+        kotlin      : [
+                kotlinStdLib        : "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin",
+                coreKtx             : "androidx.core:core-ktx:+"
+        ],
+
+        'android'   : [
+                appcompat           : "androidx.appcompat:appcompat:$versions.appcompat",
+                annotation          : "androidx.annotation:annotation:$versions.annotation"
+        ],
+
+        'injection' : [
+                dagger                : "com.google.dagger:dagger:$versions.dagger",
+                daggerCompiler        : "com.google.dagger:dagger-compiler:$versions.dagger",
+                daggerAndroidProcessor: "com.google.dagger:dagger-android-processor:$versions.dagger"
+        ],
+
+        'network'               : [
+                retrofit             : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+                retrofitConverterGson: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+                okhttp3              : "com.squareup.okhttp3:okhttp:$versions.okhttp3",
+                okhttp3Logging       : "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3"
+        ],
+
+        'ui'                    : [
+                constraintLayout        : "androidx.constraintlayout:constraintlayout:$versions.constraintLayout",
+                recyclerView            : "androidx.recyclerview:recyclerview:1.0.0",
+                glide                   : "com.github.bumptech.glide:glide:$versions.glide",
+                glideAnnotationProcessor: "com.github.bumptech.glide:compiler:$versions.glide",
+                materialDesign          : "com.google.android.material:material:$versions.materialDesign"
+        ],
+
+        'googleServices'        : [
+                googleServicesBase    : "com.google.android.gms:play-services-base:$versions.playServicesBase",
+                googleServicesLocation: "com.google.android.gms:play-services-location:$versions.playServicesLocation"
+        ]
+]
+
+ext.deps.groups = [
+        'kotlin'                : { dependencyHandler ->
+                delegate = dependencyHandler
+                api deps.kotlin.kotlinStdLib
+                api deps.kotlin.coreKtx
+        },
+
+        'injection'             : { dependencyHandler ->
+            delegate = dependencyHandler
+            implementation deps.injection.dagger
+            kapt deps.injection.daggerCompiler
+            kapt deps.injection.daggerAndroidProcessor
+        },
+
+        'network'               : { dependencyHandler ->
+            delegate = dependencyHandler
+            api deps.network.retrofit
+            api deps.network.retrofitConverterGson
+            api deps.network.okhttp3
+            api deps.network.okhttp3Logging
+        },
+
+        'ui'                    : { dependencyHandler ->
+            delegate = dependencyHandler
+            api deps.ui.constraintLayout
+            api deps.ui.recyclerView
+            api deps.ui.glide
+            kapt deps.ui.glideAnnotationProcessor
+            api deps.ui.materialDesign
+            api deps.android.appcompat
+        },
+
+        'location'              : { dependencyHandler ->
+            delegate = dependencyHandler
+            api deps.googleServices.googleServicesBase
+            api deps.googleServices.googleServicesLocation
+        }
+]
