@@ -9,6 +9,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/core-api-api" />
+            <option value="$PROJECT_DIR$/core-api-impl" />
+            <option value="$PROJECT_DIR$/core-data-api" />
+            <option value="$PROJECT_DIR$/core-data-impl" />
+            <option value="$PROJECT_DIR$/core-di" />
+            <option value="$PROJECT_DIR$/core-domain-api" />
+            <option value="$PROJECT_DIR$/core-domain-impl" />
+            <option value="$PROJECT_DIR$/core-network-api" />
+            <option value="$PROJECT_DIR$/core-network-impl" />
+            <option value="$PROJECT_DIR$/features" />
+            <option value="$PROJECT_DIR$/utils" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

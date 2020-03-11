@@ -1,2 +1,25 @@
-include ':app'
-rootProject.name='androidSample'
+include ':app',
+        ':core-domain-api',
+        ':core-domain-impl',
+        ':core-data-api',
+        ':core-data-impl',
+        ':core-network-api',
+        ':core-network-impl',
+        ':features',
+        ':utils',
+        ':core-api-api',
+        ':core-api-impl',
+        ':core-di'
+
+project(':app').projectDir = new File(rootDir, 'app')
+project(':core-domain-api').projectDir = new File(rootDir, 'core-domain-api')
+project(':core-domain-impl').projectDir = new File(rootDir, 'core-domain-impl')
+project(':core-data-api').projectDir = new File(rootDir, 'core-data-api')
+project(':core-data-impl').projectDir = new File(rootDir, 'core-data-impl')
+project(':core-network-api').projectDir = new File(rootDir, 'core-network-api')
+project(':core-network-impl').projectDir = new File(rootDir, 'core-network-impl')
+project(':features').projectDir = new File(rootDir, 'features')
+project(':utils').projectDir = new File(rootDir, 'utils')
+project(':core-api-api').projectDir = new File(rootDir, 'core-api-api')
+project(':core-api-impl').projectDir = new File(rootDir, 'core-api-impl')
+project(':core-di').projectDir = new File(rootDir, 'core-di')
