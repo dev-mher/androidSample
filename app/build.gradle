@@ -8,6 +8,9 @@ android {
         versionCode 1
         versionName "1.0.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("long", "NETWORK_TIMEOUT_MILLIS", "10_000")
+        buildConfigField("long", "CONNECT_TIMEOUT_MILLIS", "30_000")
+        buildConfigField "String", 'BASE_URL', "\"http://test.url\""
     }
 
     signingConfigs {
@@ -67,8 +70,11 @@ android {
 
 dependencies {
     implementation project(':features')
+    implementation project(':core-di')
+    implementation project(':core-network-impl')
 
     deps.groups.ui dependencies
+    deps.groups.injection dependencies
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
