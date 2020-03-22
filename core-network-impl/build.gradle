@@ -8,6 +8,8 @@ dependencies {
     implementation project(':core-network-api')
     implementation project(':core-di')
 
+    implementation deps.android.annotation
+
     deps.groups.injection dependencies
     deps.groups.network dependencies
 }
