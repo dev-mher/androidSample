@@ -1,0 +1,26 @@
+package com.example.features.screens.translate.di
+
+import com.example.androidsample.coredi.ApplicationProvider
+import com.example.androidsample.coredi.FragmentScope
+import com.example.features.screens.translate.presentation.TranslateFragment
+import com.example.features.screens.translate.presentation.TranslatePresenter
+import dagger.Component
+import dagger.Provides
+
+@FragmentScope
+@Component(
+    dependencies = [ApplicationProvider::class],
+    modules = [TranslateModule::class]
+)
+interface TranslateComponent {
+
+    fun inject(fragment: TranslateFragment)
+
+    companion object {
+        fun build(applicationProvider: ApplicationProvider): TranslateComponent {
+            return DaggerTranslateComponent.build()
+                    .applicationProvider(applicationProvider)
+                    .build()
+        }
+    }
+}

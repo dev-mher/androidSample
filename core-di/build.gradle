@@ -6,4 +6,7 @@ apply from: "$rootDir/config.gradle"
 dependencies {
 
     implementation project(':core-network-api')
+    implementation project(':core-api-api')
+    implementation project(':core-data-api')
+    implementation project(':core-domain-api')
 }

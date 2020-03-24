@@ -6,6 +6,7 @@ import com.example.androidsample.corenetworkimpl.ApiClientImpl
 import dagger.Module
 import dagger.Provides
 import okhttp3.Cache
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
@@ -41,6 +42,7 @@ class NetworkModule(
         apiClient.adapterBuilder
             .baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(okHttpClient)
             .build()
         return apiClient

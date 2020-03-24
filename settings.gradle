@@ -1,4 +1,4 @@
-include ':app',
+include ':app', ':base',
         ':core-domain-api',
         ':core-domain-impl',
         ':core-data-api',

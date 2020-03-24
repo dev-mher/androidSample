@@ -1,19 +1,12 @@
 package com.example.features.screens.translate.presentation
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import com.example.base.BaseFragment
 import com.example.features.R
 
-class TranslateFragment : Fragment() {
+class TranslateFragment : BaseFragment<TranslatePresenter>(), TranslateView {
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_translate, container, false)
-    }
+    override var layoutResource: Int = R.layout.fragment_translate
+
+    override val presenter: TranslatePresenter? = null
+
 }

@@ -73,6 +73,11 @@ dependencies {
     implementation project(':core-di')
     implementation project(':core-network-api')
     implementation project(':core-network-impl')
+    implementation project(':core-api-impl')
+    implementation project(':core-domain-api')
+    implementation project(':core-domain-impl')
+    implementation project(':core-data-api')
+    implementation project(':core-data-impl')
 
     deps.groups.ui dependencies
     deps.groups.injection dependencies
