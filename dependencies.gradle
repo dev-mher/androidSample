@@ -4,7 +4,7 @@ ext.versions = [
         targetSdk           : 29,
         buildTools          : '29.0.2',
 
-        kotlin              : '1.3.70',
+        kotlin              : '1.3.71',
         androidGradlePlugin : '3.5.3',
 
         //Android
@@ -23,7 +23,7 @@ ext.versions = [
         recyclerView          : '1.0.0',
         glide                 : '4.9.0',
         materialDesign        : '1.0.0',
-        navComponent          : '2.2.1',
+        navComponent          : '2.2.2',
 
         //Google services
         googleServicesPlugin  : '4.1.0',

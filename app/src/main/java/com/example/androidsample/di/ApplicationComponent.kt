@@ -5,10 +5,7 @@ import com.example.androidsample.BuildConfig
 import com.example.androidsample.ConfigurationImpl
 import com.example.androidsample.coreapiimpl.ApiComponent
 import com.example.androidsample.coredataimpl.di.RepositoryComponent
-import com.example.androidsample.coredi.AndroidProvider
-import com.example.androidsample.coredi.ApplicationProvider
-import com.example.androidsample.coredi.NetworkProvider
-import com.example.androidsample.coredi.UseCaseProvider
+import com.example.androidsample.coredi.*
 import com.example.androidsample.coredomainimpl.di.UseCaseComponent
 import com.example.androidsample.corenetworkimpl.di.NetworkComponent
 import dagger.Component
@@ -18,7 +15,10 @@ import javax.inject.Singleton
 @Component(
     dependencies = [
         AndroidProvider::class,
-        NetworkProvider::class
+        NetworkProvider::class,
+        ApiProvider::class,
+        RepositoryProvider::class,
+        UseCaseProvider::class
     ]
 )
 interface ApplicationComponent : ApplicationProvider {

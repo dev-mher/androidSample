@@ -3,9 +3,7 @@ package com.example.features.screens.translate.di
 import com.example.androidsample.coredi.ApplicationProvider
 import com.example.androidsample.coredi.FragmentScope
 import com.example.features.screens.translate.presentation.TranslateFragment
-import com.example.features.screens.translate.presentation.TranslatePresenter
 import dagger.Component
-import dagger.Provides
 
 @FragmentScope
 @Component(
@@ -18,9 +16,10 @@ interface TranslateComponent {
 
     companion object {
         fun build(applicationProvider: ApplicationProvider): TranslateComponent {
-            return DaggerTranslateComponent.build()
-                    .applicationProvider(applicationProvider)
-                    .build()
+            return DaggerTranslateComponent.builder()
+                .applicationProvider(applicationProvider)
+                .build()
         }
+
     }
 }
