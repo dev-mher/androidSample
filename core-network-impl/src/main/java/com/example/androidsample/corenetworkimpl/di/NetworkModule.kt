@@ -1,6 +1,7 @@
 package com.example.androidsample.corenetworkimpl.di
 
 import android.content.Context
+import com.example.androidsample.coreapiapi.TranslateApi
 import com.example.androidsample.corenetworkapi.ApiClient
 import com.example.androidsample.corenetworkimpl.ApiClientImpl
 import dagger.Module
@@ -52,5 +53,11 @@ class NetworkModule(
     @Provides
     fun httpCache(context: Context): Cache {
         return Cache(context.cacheDir, HTTP_CACHE_SIZE_BYTES)
+    }
+
+    @Singleton
+    @Provides
+    fun provideTranslateApi(apiClient: ApiClient): TranslateApi {
+        return apiClient.createApi(TranslateApi::class.java)
     }
 }

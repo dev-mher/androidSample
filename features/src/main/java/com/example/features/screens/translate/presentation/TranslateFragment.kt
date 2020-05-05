@@ -9,4 +9,6 @@ class TranslateFragment : BaseFragment<TranslatePresenter>(), TranslateView {
 
     override val presenter: TranslatePresenter? = null
 
+    //TODO link to  http://translate.yandex.ru
+
 }
