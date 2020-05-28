@@ -36,7 +36,10 @@ ext.versions = [
         rxandroid           : '2.0.2',
         rxbinding           : '2.1.1',
         adapterRxJava       : '2.3.0',
-        rxlifecycle         : '3.0.0'
+        rxlifecycle         : '3.0.0',
+
+        //Persistence
+        room                : '2.2.5'
 ]
 
 ext.gradlePlugins = [
@@ -94,6 +97,10 @@ ext.deps = [
                 rxlifecycleAndroid      : "com.trello.rxlifecycle3:rxlifecycle-android:$versions.rxlifecycle",
                 rxlifecyclekotlin       : "com.trello.rxlifecycle3:rxlifecycle-kotlin:$versions.rxlifecycle",
                 rxlifecyclekotlinAndroid: "com.trello.rxlifecycle3:rxlifecycle-android-lifecycle-kotlin:$versions.rxlifecycle"
+        ],
+
+        'persistence'           : [
+                room                    : "androidx.room:room-rxjava2:$versions.room"
         ]
 ]
 

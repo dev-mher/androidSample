@@ -8,7 +8,7 @@ import dagger.Component
 @FragmentScope
 @Component(
     dependencies = [ApplicationProvider::class],
-    modules = [TranslateModule::class]
+    modules = [TranslateBinds::class]
 )
 interface TranslateComponent {
 

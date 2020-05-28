@@ -1,10 +1,10 @@
 package com.example.features.screens.translate.domain
 
 import com.example.androidsample.coredomainapi.TranslateUseCase
-import com.example.features.screens.translate.presentation.TranslateInteractor
+import com.example.features.screens.translate.presentation.TranslateModel
 import javax.inject.Inject
 
-class TranslateInteractorImpl @Inject constructor(
+class TranslateModelImpl @Inject constructor(
     translateUseCase: TranslateUseCase
-) : TranslateInteractor,
+) : TranslateModel,
     TranslateUseCase by translateUseCase

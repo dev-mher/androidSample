@@ -1,0 +1,10 @@
+apply plugin: 'com.android.library'
+
+apply from: "$rootDir/dependencies.gradle"
+apply from: "$rootDir/config.gradle"
+
+dependencies {
+
+    implementation deps.persistence.room
+    implementation deps.android.annotation
+}

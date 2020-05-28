@@ -1,13 +1,15 @@
 package com.example.features.screens.translate.di
 
-import com.example.features.screens.translate.domain.TranslateInteractorImpl
-import com.example.features.screens.translate.presentation.TranslateInteractor
-import dagger.Binds
-import dagger.Module
+//@Module
+class TranslateModule {
 
-@Module
-interface TranslateModule {
+    /*@Singleton
+    @Provides
+    @FragmentScope
+    fun provideTranslatePresenter(interactor: TranslateInteractor) = TranslatePresenterImpl(interactor)
 
-    @Binds
-    fun bindsInteractor(impl: TranslateInteractorImpl): TranslateInteractor
+    @Singleton
+    @Provides
+    @FragmentScope
+    fun provideTranslateInteractor(translateUseCase: TranslateUseCase) = TranslateInteractorImpl(translateUseCase)*/
 }

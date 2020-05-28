@@ -23,3 +23,5 @@ project(':utils').projectDir = new File(rootDir, 'utils')
 project(':core-api-api').projectDir = new File(rootDir, 'core-api-api')
 project(':core-api-impl').projectDir = new File(rootDir, 'core-api-impl')
 project(':core-di').projectDir = new File(rootDir, 'core-di')
+include ':core-persistence-api'
+include ':core-persistence-impl'

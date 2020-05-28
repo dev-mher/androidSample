@@ -1,9 +1,8 @@
 package com.example.features.screens.translate.presentation
 
-import com.example.base.BasePresenterImpl
-import javax.inject.Inject
+import com.example.base.BasePresenter
 
-class TranslatePresenter @Inject constructor(
-    private val interactor: TranslateInteractor
-) : BasePresenterImpl<TranslateView>() {
+interface TranslatePresenter : BasePresenter<TranslateView> {
+
+    fun onTextChange(text: String)
 }

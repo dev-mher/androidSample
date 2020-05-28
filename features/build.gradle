@@ -7,7 +7,6 @@ dependencies {
     implementation project(':core-di')
     implementation project(':base')
     implementation project(':core-domain-api')
-    implementation project(':core-domain-impl')
     
     deps.groups.ui dependencies
     deps.groups.injection dependencies

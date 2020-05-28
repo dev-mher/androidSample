@@ -22,6 +22,8 @@
             <option value="$PROJECT_DIR$/core-domain-impl" />
             <option value="$PROJECT_DIR$/core-network-api" />
             <option value="$PROJECT_DIR$/core-network-impl" />
+            <option value="$PROJECT_DIR$/core-persistence-api" />
+            <option value="$PROJECT_DIR$/core-persistence-impl" />
             <option value="$PROJECT_DIR$/features" />
             <option value="$PROJECT_DIR$/utils" />
           </set>
