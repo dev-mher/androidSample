@@ -10,4 +10,5 @@ dependencies {
     
     deps.groups.ui dependencies
     deps.groups.injection dependencies
+    deps.groups.kotlin dependencies
 }

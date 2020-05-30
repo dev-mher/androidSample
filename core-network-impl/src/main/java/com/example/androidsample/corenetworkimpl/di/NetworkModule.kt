@@ -54,10 +54,4 @@ class NetworkModule(
     fun httpCache(context: Context): Cache {
         return Cache(context.cacheDir, HTTP_CACHE_SIZE_BYTES)
     }
-
-    @Singleton
-    @Provides
-    fun provideTranslateApi(apiClient: ApiClient): TranslateApi {
-        return apiClient.createApi(TranslateApi::class.java)
-    }
 }

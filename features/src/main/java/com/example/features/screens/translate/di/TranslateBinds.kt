@@ -13,9 +13,9 @@ interface TranslateBinds {
 
     @FragmentScope
     @Binds
-    fun bindsInteractor(impl: TranslateModelImpl): TranslateModel
+    fun bindsTranslateModel(impl: TranslateModelImpl): TranslateModel
 
     @FragmentScope
     @Binds
-    fun bindsPresenter(impl: TranslatePresenterImpl): TranslatePresenter
+    fun bindsTranslatePresenter(impl: TranslatePresenterImpl): TranslatePresenter
 }

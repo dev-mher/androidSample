@@ -1,6 +1,5 @@
 package com.example.features.screens.translate.presentation
 
-import android.content.Context
 import android.os.Bundle
 import android.view.View
 import com.example.androidsample.coredi.App
@@ -15,16 +14,12 @@ class TranslateFragment : BaseFragment<TranslatePresenter>(), TranslateView {
 
     override var layoutResource: Int = R.layout.fragment_translate
 
-    private lateinit var component: TranslateComponent
+    override var presenter: TranslatePresenter? = null
+    @Inject set
 
-    @Inject
-    override lateinit var presenter: TranslatePresenter
-
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    override fun injectDependencies() {
         val applicationProvider = (requireActivity() as App).getApplicationProvider()
-        component = TranslateComponent.build(applicationProvider)
-        component.inject(this)
+        TranslateComponent.build(applicationProvider).inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

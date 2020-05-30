@@ -5,7 +5,7 @@ import com.example.base.BasePresenterImpl
 import javax.inject.Inject
 
 class TranslatePresenterImpl @Inject constructor(
-    private val interactor: TranslateModel
+    private val translateModel: TranslateModel
 ) : BasePresenterImpl<TranslateView>(), TranslatePresenter {
 
     override fun onTextChange(text: String) {

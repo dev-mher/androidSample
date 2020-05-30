@@ -9,6 +9,6 @@ class TranslateUseCaseImpl @Inject constructor(
 ) : TranslateUseCase {
 
     override fun translate() {
-        //TODO
+        translateRepository.translate()
     }
 }

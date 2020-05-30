@@ -5,11 +5,11 @@ import com.example.androidsample.coredataapi.TranslateRepository
 import javax.inject.Inject
 
 class TranslateRepositoryImpl @Inject constructor(
-    val translateApi: TranslateApi
+    private val translateApi: TranslateApi
 ) : TranslateRepository {
 
     //TODO
     override fun translate() {
-
+        translateApi.getLanguages()
     }
 }

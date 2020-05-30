@@ -1,5 +1,6 @@
 package com.example.base
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,11 +13,18 @@ import io.reactivex.disposables.Disposable
 abstract class BaseFragment<PRESENTER : BasePresenter<*>> : Fragment(), BaseView {
 
     @get: LayoutRes
-    abstract var layoutResource: Int
+    protected abstract var layoutResource: Int
 
-    protected  abstract val presenter: PRESENTER?
+    protected abstract var presenter: PRESENTER?
+
+    protected abstract fun injectDependencies()
 
     private val mCompositeDisposable = CompositeDisposable()
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        injectDependencies()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
