@@ -18,7 +18,7 @@ class TranslateFragment : BaseFragment<TranslatePresenter>(), TranslateView {
     @Inject set
 
     override fun injectDependencies() {
-        val applicationProvider = (requireActivity() as App).getApplicationProvider()
+        val applicationProvider = (requireActivity().application as App).getApplicationProvider()
         TranslateComponent.build(applicationProvider).inject(this)
     }
 

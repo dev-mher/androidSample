@@ -9,6 +9,7 @@ dependencies {
     implementation project(':core-api-api')
     implementation project(':core-di')
     implementation project(':core-domain-api')
+    implementation project(':core-persistence-api')
 
     deps.groups.injection dependencies
     deps.groups.rx dependencies

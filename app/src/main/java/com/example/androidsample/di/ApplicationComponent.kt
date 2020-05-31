@@ -8,6 +8,7 @@ import com.example.androidsample.coredataimpl.di.RepositoryComponent
 import com.example.androidsample.coredi.*
 import com.example.androidsample.coredomainimpl.di.UseCaseComponent
 import com.example.androidsample.corenetworkimpl.di.NetworkComponent
+import com.example.androidsample.corepresistenceimpl.di.PersistenceComponent
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,6 +18,7 @@ import javax.inject.Singleton
         AndroidProvider::class,
         NetworkProvider::class,
         ApiProvider::class,
+        PersistenceProvider::class,
         RepositoryProvider::class,
         UseCaseProvider::class
     ]
@@ -35,13 +37,15 @@ interface ApplicationComponent : ApplicationProvider {
                 androidProvider
             )
             val apiProvider = ApiComponent.build(networkProvider)
-            val repositoryProvider = RepositoryComponent.build(apiProvider)
+            val persistenceProvider = PersistenceComponent.build(androidProvider)
+            val repositoryProvider = RepositoryComponent.build(apiProvider, persistenceProvider)
             val useCaseProvider = UseCaseComponent.build(repositoryProvider)
 
             return DaggerApplicationComponent.builder()
                 .androidProvider(androidProvider)
                 .networkProvider(networkProvider)
                 .apiProvider(apiProvider)
+                .persistenceProvider(persistenceProvider)
                 .repositoryProvider(repositoryProvider)
                 .useCaseProvider(useCaseProvider)
                 .build()

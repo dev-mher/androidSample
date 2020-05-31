@@ -5,6 +5,7 @@ apply from: "$rootDir/config.gradle"
 
 dependencies {
 
+    implementation project(':core-di')
     implementation project(':core-persistence-api')
     implementation deps.persistence.room
     implementation deps.android.annotation

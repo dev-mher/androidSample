@@ -1,12 +1,12 @@
-package com.example.core_presistence_impl.preference
+package com.example.androidsample.corepresistenceimpl.preference
 
 import android.content.Context
-import com.example.core_persistence_api.preference.PreferenceManager
+import com.example.androidsample.corepersistenceapi.preference.PreferenceManagerApi
 import javax.inject.Inject
 
 class PreferenceManagerImpl @Inject constructor(
     context: Context
-) : PreferenceManager {
+) : PreferenceManagerApi {
 
     private val preferences = context.getSharedPreferences(PREF_APP_SCOPE, Context.MODE_PRIVATE)
 

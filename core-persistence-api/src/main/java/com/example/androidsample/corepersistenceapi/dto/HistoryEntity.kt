@@ -1,4 +1,4 @@
-package com.example.core_persistence_api.dto
+package com.example.androidsample.corepersistenceapi.dto
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

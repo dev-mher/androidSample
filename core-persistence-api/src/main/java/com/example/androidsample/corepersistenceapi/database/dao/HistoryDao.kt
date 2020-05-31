@@ -1,4 +1,4 @@
-package com.example.core_persistence_api.database.dao
+package com.example.androidsample.corepersistenceapi.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert

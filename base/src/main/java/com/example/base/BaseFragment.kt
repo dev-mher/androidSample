@@ -21,7 +21,7 @@ abstract class BaseFragment<PRESENTER : BasePresenter<*>> : Fragment(), BaseView
 
     private val mCompositeDisposable = CompositeDisposable()
 
-    override fun onAttach(context: Context?) {
+    override fun onAttach(context: Context) {
         super.onAttach(context)
         injectDependencies()
     }

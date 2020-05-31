@@ -9,4 +9,5 @@ dependencies {
     implementation project(':core-api-api')
     implementation project(':core-data-api')
     implementation project(':core-domain-api')
+    implementation project(':core-persistence-api')
 }

@@ -1,7 +1,9 @@
 package com.example.androidsample.coredomainapi
 
+import com.example.androidsample.coredomainapi.dto.TranslateDomain
+import io.reactivex.Single
+
 interface TranslateUseCase {
 
-    //TODO
-    fun translate()
+    fun translate(language: String, text: String): Single<TranslateDomain>
 }

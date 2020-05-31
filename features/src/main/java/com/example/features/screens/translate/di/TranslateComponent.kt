@@ -3,7 +3,6 @@ package com.example.features.screens.translate.di
 import com.example.androidsample.coredi.ApplicationProvider
 import com.example.androidsample.coredi.FragmentScope
 import com.example.features.screens.translate.presentation.TranslateFragment
-import com.example.features.screens.translate.presentation.TranslatePresenter
 import dagger.Component
 
 @FragmentScope

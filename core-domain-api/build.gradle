@@ -2,3 +2,8 @@ apply plugin: 'com.android.library'
 
 apply from: "$rootDir/dependencies.gradle"
 apply from: "$rootDir/config.gradle"
+
+dependencies {
+
+    deps.groups.rx dependencies
+}
