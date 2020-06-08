@@ -2,6 +2,7 @@ package com.example.base
 
 import androidx.lifecycle.LifecycleObserver
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 
 abstract class BasePresenterImpl<VIEW : BaseView> : BasePresenter<VIEW>, LifecycleObserver {
 
@@ -18,6 +19,10 @@ abstract class BasePresenterImpl<VIEW : BaseView> : BasePresenter<VIEW>, Lifecyc
         mView?.getLifecycle()?.removeObserver(this)
         mView = null
         mCompositeDisposable.clear()
+    }
+
+    fun addDispose(disposable: Disposable) {
+        mCompositeDisposable.add(disposable)
     }
 
     override fun getView(): VIEW? {

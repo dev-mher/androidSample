@@ -3,4 +3,6 @@
     <string name="title_translate">translate</string>
     <string name="title_history">history</string>
     <string name="title_choose_language">choose language</string>
+    <string name="choose_language">Выберите язык</string>
+    <string name="choose">Выбрать</string>
 </resources>

@@ -24,6 +24,7 @@ ext.versions = [
         glide                 : '4.9.0',
         materialDesign        : '1.0.0',
         navComponent          : '2.2.2',
+        materialAlert         : '1.1.0',
 
         //Google services
         googleServicesPlugin  : '4.1.0',
@@ -79,7 +80,8 @@ ext.deps = [
                 glideAnnotationProcessor: "com.github.bumptech.glide:compiler:$versions.glide",
                 materialDesign          : "com.google.android.material:material:$versions.materialDesign",
                 navigationFragment      : "androidx.navigation:navigation-fragment-ktx:$versions.navComponent",
-                navigationUi            : "androidx.navigation:navigation-ui-ktx:$versions.navComponent"
+                navigationUi            : "androidx.navigation:navigation-ui-ktx:$versions.navComponent",
+                materialAlertDialog     : "com.google.android.material:material:$versions.materialAlert"
         ],
 
         'googleServices'        : [

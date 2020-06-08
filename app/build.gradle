@@ -10,7 +10,8 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("long", "NETWORK_TIMEOUT_MILLIS", "10_000")
         buildConfigField("long", "CONNECT_TIMEOUT_MILLIS", "30_000")
-        buildConfigField "String", 'BASE_URL', "\"http://test.url\""
+        buildConfigField "String", 'BASE_URL', "\"https://translate.yandex.net/api/v1.5/tr.json/\""
+        buildConfigField "String", 'API_KEY', "\"trnsl.1.1.20200320T153740Z.3e80797856c6ff63.8233bf5c1572faf0676ababf959e979fa3f9670b\""
     }
 
     signingConfigs {

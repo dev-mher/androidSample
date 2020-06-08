@@ -20,10 +20,11 @@ interface NetworkComponent : NetworkProvider {
             baseUrl: String,
             networkTimeout: Long,
             connectionTimeout: Long,
-            androidProvider: AndroidProvider
+            androidProvider: AndroidProvider,
+            isDebug: Boolean
         ): NetworkProvider {
 
-            val networkModule = NetworkModule(baseUrl, networkTimeout, connectionTimeout)
+            val networkModule = NetworkModule(baseUrl, networkTimeout, connectionTimeout, isDebug)
 
             return DaggerNetworkComponent.builder()
                 .networkModule(networkModule)

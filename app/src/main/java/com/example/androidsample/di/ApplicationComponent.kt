@@ -34,11 +34,12 @@ interface ApplicationComponent : ApplicationProvider {
                 BuildConfig.BASE_URL,
                 BuildConfig.NETWORK_TIMEOUT_MILLIS,
                 BuildConfig.CONNECT_TIMEOUT_MILLIS,
-                androidProvider
+                androidProvider,
+                BuildConfig.DEBUG
             )
             val apiProvider = ApiComponent.build(networkProvider)
             val persistenceProvider = PersistenceComponent.build(androidProvider)
-            val repositoryProvider = RepositoryComponent.build(apiProvider, persistenceProvider)
+            val repositoryProvider = RepositoryComponent.build(apiProvider, persistenceProvider, configuration)
             val useCaseProvider = UseCaseComponent.build(repositoryProvider)
 
             return DaggerApplicationComponent.builder()

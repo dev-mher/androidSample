@@ -2,6 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.androidsample">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".AppImpl"
         android:allowBackup="true"

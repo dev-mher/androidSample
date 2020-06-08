@@ -1,8 +1,11 @@
 package com.example.androidsample.coredi
 
 import android.content.Context
+import com.example.androidsample.coreapiapi.LanguagesApi
 import com.example.androidsample.coreapiapi.TranslateApi
+import com.example.androidsample.coredataapi.LanguagesRepository
 import com.example.androidsample.coredataapi.TranslateRepository
+import com.example.androidsample.coredomainapi.GetLanguagesUseCase
 import com.example.androidsample.coredomainapi.TranslateUseCase
 import com.example.androidsample.corenetworkapi.ApiClient
 import com.example.androidsample.corepersistenceapi.database.DatabaseManagerApi
@@ -31,16 +34,22 @@ interface NetworkProvider {
 interface ApiProvider {
 
     fun provideTranslateApi(): TranslateApi
+
+    fun provideLanguagesApi(): LanguagesApi
 }
 
 interface RepositoryProvider {
 
     fun provideTranslateRepository(): TranslateRepository
+
+    fun provideLanguagesRepository(): LanguagesRepository
 }
 
 interface UseCaseProvider {
 
     fun provideTranslateUseCase(): TranslateUseCase
+
+    fun provideGetLanguagesUseCase(): GetLanguagesUseCase
 }
 
 interface PersistenceProvider {

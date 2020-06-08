@@ -13,4 +13,6 @@ class ConfigurationImpl(private val context: Context) : Configuration {
         else
             context.resources.configuration.locale
     }
+
+    override fun getApiKey(): String = BuildConfig.API_KEY
 }
